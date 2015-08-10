@@ -1,6 +1,4 @@
 
-
-
 $(function(){ 
   
 	// grid
@@ -40,15 +38,15 @@ $(function(){
 		}//columns 
 	    }//rows
 	}
-	
+
 
 	//render
 	$(window).on( 'load resize' , function(){ 
 		// Test
-		rows = Math.floor ( getRowAmount( rowHeight, getScreenHeight()) )
+		rows = Math.floor ( getRowAmount( rowHeight, getScreenHeight() ) )
 		makeGrid( columns, rows );
 
-		
+
 		// listen for box clicks
 		$('[data-box]').on('click', function(){ 
 			//
@@ -66,29 +64,28 @@ $(function(){
 			    // focus it
 			    $input.focus();
 			    // change status
-			    $input.attr( 'data-box-status', 'edit' );
-			    
+			    $input.attr( 'data-box-status', 'edit' );			    
 			    // style it
 			    $this.css({ 
 				'background' : 'blue'
 			    });
-			    
-			    //  YOU WHERE HERE
+			    /*
+			    //listen for "enter" to save the module
+			    $doc.keypress( function( event ){
+				    if( event.type === 13 ){ 
+					//convert
+				    }
+				})
+				
+				//listen for outside click
+				}// if empty
+			    */
+			}
 
-			    //listen for "enter"
-			    $doc.keypress( function( event ) ){
-				if( event.type === 13 ){ 
-				    //convert
-				}
+		    });// on box clicks
 
-			    }
-
-			    //listen for outside click
-			    
-		    });
-	    });
-	
-	
+		
+	    })// on window resize and load
 
 	// convert clicked boxes into inputs and save the outputs
 	// all boxes under modules become features green
